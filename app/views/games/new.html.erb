@@ -1,0 +1,18 @@
+<h1>coucou page new</h1>
+
+<ul class="letters">
+    <% @letters.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <p class="form-prefix">donnes-moi le mot le plus long?</p>
+
+  <form action="/score" method="POST" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-group">
+      <input type="text" name="word" class="form-control">
+      <input type="submit" value="Play" class="btn btn-primary">
+    </div>
+  </form>
